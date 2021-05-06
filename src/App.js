@@ -1,15 +1,19 @@
 import React from "react";
-import Potato from "./Potato";
-import potato from './Potato';
+import { HashRouter, Route} from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Detail from "./routes/Detail";
+import Navigation from "./components/Navigation";
 
-
-// HTML을 반환하는 함수를 Component라 한다.
-function App() {
+function App(){
   return (
-  <div>
-    <h3>Hello!!!!</h3>
-    <Potato></Potato> 
- </div>);
+  <HashRouter>
+    <Navigation/>
+    <Route path="/" exact={true} component={Home} />
+    <Route path="/about" component={About} />
+    <Route path="/movie/:id" component={Detail}/>
+  </HashRouter>
+  );
 }
 
 export default App;
